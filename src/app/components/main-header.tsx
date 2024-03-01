@@ -2,7 +2,7 @@ import React from "react";
 
 export default function MainHeader() {
   return (
-    <header className="flex justify-between">
+    <header className="flex justify-between items-end">
       <div>
         <p className="space-x-2">
           <span>Sai Htun</span>

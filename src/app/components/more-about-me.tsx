@@ -6,8 +6,8 @@ import ShowcaseContainer from "./ui/showcase-container";
 export default function MoreAboutMe() {
   return (
     <ShowcaseContainer title="more about me">
-      <div className="grid grid-cols-2  gap-y-20 md:gap-2 text-neutral-500">
-        <div className="space-y-4">
+      <div className="grid md:grid-cols-2 md:gap-2 gap-y-20  text-neutral-500">
+        <div className="space-y-4 text-pretty">
           <p>
             I’m a Sofware Enginner by accident. That’s right! I didn’t plan on
             becoming a tech whiz, but the pandemic had other ideas.
@@ -31,7 +31,7 @@ export default function MoreAboutMe() {
           <h2 className="text-neutral-900">
             tools I love, but not limited to.
           </h2>
-          <div className="word-spacing-wide font-mono text-sm">
+          <div className="word-spacing-wide font-mono max-sm:text-xs">
             <p>html css javascript typescript react.js</p>
             <p>node.js restapi graphql sql nosql </p>
             <p>docker kubernetes aws </p>

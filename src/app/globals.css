@@ -10,7 +10,6 @@ html {
   box-sizing: border-box;
 }
 
-
 /* making new tailwindcss utility via css */
 @layer utilities {
   .text-balance {
@@ -30,11 +29,11 @@ html {
 
 @layer components {
   .__section_y_space {
-    @apply space-y-20
+    @apply space-y-10 md:space-y-20
   }
 
 
   .__item_grid {
-    @apply grid grid-cols-[40px_1fr_100px] items-center gap-4 bg-zinc-50 px-3 py-5 rounded-md text-sm
+    @apply grid grid-cols-[40px_1fr] md:grid-cols-[40px_1fr_100px] items-center gap-1 md:gap-4 bg-zinc-50 px-3 py-5 rounded-md text-sm
   }
 }
