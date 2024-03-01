@@ -17,6 +17,14 @@ html {
     text-wrap: balance;
   }
 
+  .word-spacing-wide {
+    word-spacing: 0.025rem
+  }
+
+  .word-spacing-wider {
+    word-spacing: 1rem
+  }
+
 }
 
 

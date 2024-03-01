@@ -2,6 +2,8 @@ import Experiences from "./components/experiences";
 import Hero from "./components/hero";
 import MainHeader from "~/components/main-header";
 import Projects from "./components/projects";
+import MoreAboutMe from "./components/more-about-me";
+import Announcement from "./components/announcement";
 
 export default function Home() {
   return (
@@ -10,6 +12,8 @@ export default function Home() {
       <Hero />
       <Experiences />
       <Projects />
+      <MoreAboutMe />
+      <Announcement />
       <div className="mb-auto"></div>
       <div className="h-20 bg-zinc-100"></div>
     </main>

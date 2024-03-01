@@ -17,6 +17,9 @@ const config: Config = {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
       },
+      gridTemplateColumns: {
+        "2": "repeat(auto-fit, minmax(400px, 1fr))",
+      },
     },
   },
   plugins: [],
