@@ -1,4 +1,4 @@
-import Apple from "~/components/ui/icons/apple-icon";
+import AppleCompanyIcon from "~/components/ui/icons/apple-company-icon";
 import TextInitialIcon from "~/components/ui/icons/text-initial-icon";
 
 export type TExperience = {
@@ -15,14 +15,14 @@ export const experienceList: TExperience[] = [
     company: "Apple Inc",
     position: "Software Engineer Intern",
     timeline: "2023",
-    companyIcon: <Apple />,
+    companyIcon: <AppleCompanyIcon />,
   },
   {
     id: 2,
     company: "Apple Inc",
     position: "Sales Specialist",
     timeline: "2021 - Now",
-    companyIcon: <Apple />,
+    companyIcon: <AppleCompanyIcon />,
   },
   {
     id: 3,

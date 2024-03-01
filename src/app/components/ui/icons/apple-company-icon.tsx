@@ -1,8 +1,7 @@
-import React from "react";
 import Image from "next/image";
 import MainIconWrapper from "./main-icon-wrapper";
 
-export default function Apple() {
+export default function AppleCompanyIcon() {
   return (
     <MainIconWrapper twClasses="rounded-full">
       <Image

@@ -8,7 +8,7 @@ export default function MainHeader() {
           <span>Sai Htun</span>
           <span className="text-neutral-500">谷忠信</span>
         </p>
-        <p className="text-neutral-600">Software Engineer</p>
+        <p className="text-neutral-500">Software Engineer</p>
       </div>
       <button>light</button>
     </header>
