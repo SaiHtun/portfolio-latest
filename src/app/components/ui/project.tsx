@@ -1,8 +1,8 @@
 import React from "react";
-import { ProjectType } from "~/constants/project-list";
+import { TProject } from "~/constants/project-list";
 
 type Props = {
-  project: ProjectType;
+  project: TProject;
 };
 
 export default function Project({ project }: Props) {
