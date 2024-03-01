@@ -4,6 +4,7 @@ import MainHeader from "~/components/main-header";
 import Projects from "./components/projects";
 import MoreAboutMe from "./components/more-about-me";
 import Announcement from "./components/announcement";
+import MainFooter from "./components/main-footer";
 
 export default function Home() {
   return (
@@ -14,8 +15,7 @@ export default function Home() {
       <Projects />
       <MoreAboutMe />
       <Announcement />
-      <div className="mb-auto"></div>
-      <div className="h-20 bg-zinc-100"></div>
+      <MainFooter />
     </main>
   );
 }

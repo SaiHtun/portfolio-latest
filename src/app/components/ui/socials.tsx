@@ -1,22 +1,10 @@
 import React from "react";
-import MainIconWrapper from "./icons/main-icon-wrapper";
-import { GitBranchPlus } from "lucide-react";
-import Link from "next/link";
-
-function Cat() {
-  return (
-    <Link href="/">
-      <MainIconWrapper>
-        <GitBranchPlus size="20px" />
-      </MainIconWrapper>
-    </Link>
-  );
-}
+import { socialList } from "~/constants/social-list";
 
 export default function Socials() {
   return (
-    <div>
-      <Cat />
-    </div>
+    <div className="flex gap-2 w-fit">{socialList.map((social) => social)}</div>
   );
 }
+
+Socials.displayName = "Socials";

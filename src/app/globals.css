@@ -42,7 +42,6 @@ html {
     @apply grid max-sm:grid-cols-[40px_1fr] grid-cols-[40px_1fr_100px] items-center gap-2 md:gap-4 px-3 py-5 rounded-md text-sm
   }
 
-
   .__primary_text_color {
     @apply text-neutral-800 dark:text-neutral-50
   }
