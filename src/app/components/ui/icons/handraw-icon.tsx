@@ -15,7 +15,7 @@ export default function HandrawIcon({ twClasses, ...props }: TProps) {
         width="1em"
         height="1em"
         viewBox="0 0 20 20"
-        className={cn(twClasses)}
+        className={cn("w-6 h-6", twClasses)}
         {...props}
       >
         <path

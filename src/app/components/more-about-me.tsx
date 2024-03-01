@@ -6,7 +6,7 @@ import ShowcaseContainer from "./ui/showcase-container";
 export default function MoreAboutMe() {
   return (
     <ShowcaseContainer title="more about me">
-      <div className="grid md:grid-cols-2 gap-y-10  text-neutral-500">
+      <div className="grid md:grid-cols-2 gap-y-10  __secondary_text_color">
         <div className="space-y-4 text-pretty">
           <p>
             I’m a Sofware Enginner by accident. That’s right! I didn’t plan on
@@ -31,7 +31,7 @@ export default function MoreAboutMe() {
           </p>
         </div>
         <div className="place-self-end text-end">
-          <h2 className="text-neutral-900">
+          <h2 className="__primary_text_color">
             tools I love, but not limited to.
           </h2>
           <div className="word-spacing-wide font-mono text-sm">

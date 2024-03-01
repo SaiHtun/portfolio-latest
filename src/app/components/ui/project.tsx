@@ -13,9 +13,9 @@ export default function Project({ project }: Props) {
       <div className="grid place-items-center">{projectIcon}</div>
       <div>
         <h3>{name}</h3>
-        <p className="text-neutral-500 line-clamp-1">{intro}</p>
+        <p className="__secondary_text_color line-clamp-1">{intro}</p>
       </div>
-      <p className="self-end text-end  text-neutral-500 text-sm font-mono space-x-2 max-sm:hidden">
+      <p className="self-end text-end  __secondary_text_color text-sm font-mono space-x-2 max-sm:hidden">
         {topics.map((t, i) => (
           <span key={i}>{t}</span>
         ))}

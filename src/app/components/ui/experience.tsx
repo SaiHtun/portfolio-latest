@@ -13,9 +13,9 @@ export default function Experience({ experience }: TProps) {
       <div className="grid place-items-center">{companyIcon}</div>
       <div>
         <h3>{company}</h3>
-        <p className="text-neutral-500 line-clamp-1">{position}</p>
+        <p className="__secondary_text_color line-clamp-1">{position}</p>
       </div>
-      <p className="self-end text-end text-neutral-500 text-sm font-mono max-sm:hidden">
+      <p className="self-end text-end __secondary_text_color text-sm font-mono max-sm:hidden">
         {timeline}
       </p>
     </div>

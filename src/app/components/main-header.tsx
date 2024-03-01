@@ -1,4 +1,5 @@
 import React from "react";
+import ThemeSwitcher from "./theme-switcher";
 
 export default function MainHeader() {
   return (
@@ -6,11 +7,11 @@ export default function MainHeader() {
       <div>
         <p className="space-x-2">
           <span>Sai Htun</span>
-          <span className="text-neutral-500">谷忠信</span>
+          <span className="__secondary_text_color">谷忠信</span>
         </p>
-        <p className="text-neutral-500">Software Engineer</p>
+        <p className="__secondary_text_color">Software Engineer</p>
       </div>
-      <button>light</button>
+      <ThemeSwitcher />
     </header>
   );
 }

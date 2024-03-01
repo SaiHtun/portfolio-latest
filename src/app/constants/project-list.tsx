@@ -28,9 +28,7 @@ export const projectList: TProject[] = [
     name: "Paint Board",
     intro: "darwing with finger gestures",
     topics: ["opencv", "ml/ai"],
-    projectIcon: (
-      <HandrawIcon stroke="black" strokeWidth="0.3" twClasses="w-6 h-6" />
-    ),
+    projectIcon: <HandrawIcon />,
   },
   {
     id: 3,

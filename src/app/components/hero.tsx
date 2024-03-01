@@ -4,7 +4,7 @@ import Socials from "./ui/socials";
 export default function Hero() {
   return (
     <ShowcaseContainer title="Me">
-      <div className="space-y-4 text-neutral-500 tracking-wide text-pretty">
+      <div className="space-y-4 __secondary_text_color tracking-wide text-pretty">
         <p>
           I’m a dynamic software engineer nestled in the vibrant tech hub of San
           Francisco. At the heart of my expertise lies React.js and TypeScript

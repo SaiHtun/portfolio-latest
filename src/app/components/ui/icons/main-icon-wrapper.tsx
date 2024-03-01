@@ -11,7 +11,7 @@ export default function MainIconWrapper({ twClasses, children }: TProps) {
   return (
     <div
       className={cn(
-        "bg-zinc-100 w-10 h-10 rounded-md grid place-items-center",
+        "bg-neutral-100 dark:bg-neutral-700/80 w-10 h-10 rounded-md grid place-items-center",
         twClasses
       )}
     >
