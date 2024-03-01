@@ -2,32 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+*,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
+/* making new tailwindcss utility via css */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+}
+
+
+@layer components {
+  .__section_y_space {
+    @apply space-y-20
+  }
+
+
+  .__item_grid {
+    @apply grid grid-cols-[40px_1fr_100px] items-center gap-4 bg-zinc-50 px-3 py-5 rounded-md text-sm
   }
 }
