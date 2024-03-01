@@ -1,8 +1,8 @@
 import React from "react";
-import { type Experience } from "~/components/experiences";
+import { type TExperience } from "~/constants/experience-list";
 
 type TProps = {
-  experience: Experience;
+  experience: TExperience;
 };
 
 export default function Experience({ experience }: TProps) {
