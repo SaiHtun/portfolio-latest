@@ -19,7 +19,7 @@ export default function MoreAboutMe() {
           <p>
             Little did I know, coding would soon become my obsession. But hey, I
             swear to god that I can print <span> “Hello World”</span>, center a{" "}
-            <span>&lt;div/&gt;</span> and make the <span>&lt;button/&gt;</span>
+            <span>&lt;div/&gt;</span> and make the <span>&lt;button/&gt;</span>{" "}
             works!
           </p>
           <p>

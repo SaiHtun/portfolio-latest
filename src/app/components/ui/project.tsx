@@ -9,7 +9,7 @@ export default function Project({ project }: Props) {
   const { name, intro, topics, projectIcon } = project;
 
   return (
-    <div className="__item_grid">
+    <div className="__item_grid hover:bg-neutral-100 hover:dark:bg-neutral-800 transition-colors cursor-pointer">
       <div className="grid place-items-center">{projectIcon}</div>
       <div>
         <h3>{name}</h3>
