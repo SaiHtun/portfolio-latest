@@ -10,7 +10,7 @@ export default function Announcement() {
           actively looking for Software Engineering opportuniy
         </p>
       </div>
-      <p className="font-mono __secondary_text_color inline-flex gap-2">
+      <p className="font-mono text-shadow-gray inline-flex gap-2">
         <span>frontend</span>
         <span>backend</span>
         <span>fullstack</span>

@@ -6,7 +6,7 @@ import ShowcaseContainer from "./ui/showcase-container";
 export default function MoreAboutMe() {
   return (
     <ShowcaseContainer title="more">
-      <div className="grid md:grid-cols-2 gap-y-10  __secondary_text_color">
+      <div className="grid md:grid-cols-2 gap-y-10  text-shadow-gray">
         <div className="space-y-4 text-pretty">
           <p>
             I’m a Sofware Enginner by accident. That’s right! I didn’t plan on
@@ -25,7 +25,7 @@ export default function MoreAboutMe() {
           <p>I speak “hello” “你好” “မင်္ဂလာပါ”</p>
         </div>
         <div className="place-self-end text-end">
-          <h2 className="__primary_text_color">
+          <h2 className="text-charcoal-gray">
             tools I love, but not limited to.
           </h2>
           <div className="word-spacing-wide">

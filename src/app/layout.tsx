@@ -23,7 +23,7 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>
-          <div className="max-w-[900px] h-screen my-[100px] mx-auto __primary_text_color font-sans">
+          <div className="max-w-[900px] h-screen my-[100px] mx-auto text-charcoal-gray font-sans">
             {children}
           </div>
         </ThemeProvider>

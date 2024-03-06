@@ -18,6 +18,10 @@ const config: Config = {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
       },
+      colors: {
+        "charcoal-gray": "var(--charcoal-gray)",
+        "shadow-gray": "var(--shadow-gray)",
+      },
       gridTemplateColumns: {
         "2": "repeat(auto-fit, minmax(400px, 1fr))",
       },

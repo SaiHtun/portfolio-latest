@@ -6,9 +6,9 @@ export default function MainFooter() {
   return (
     <div className="w-full h-[200px] flex justify-between items-center">
       <Socials />
-      <div className="font-mono __secondary_text_color text-sm flex gap-2 items-center">
+      <div className="font-mono text-shadow-gray text-sm flex gap-2 items-center">
         <p>
-          © 2024 <span className="__primary_text_color"> Sai Htun </span>
+          © 2024 <span className="text-charcoal-gray"> Sai Htun </span>
         </p>
         <SaiIcon />
       </div>

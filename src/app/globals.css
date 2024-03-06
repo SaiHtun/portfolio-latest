@@ -15,6 +15,18 @@ html {
 } */
 
 
+@layer base {
+  :root {
+    --charcoal-gray: #262626;
+    --shadow-gray: #737373;
+  }
+
+  :root[class~="dark"] {
+    --charcoal-gray: #fafafa;
+    --shadow-gray: #a3a3a3;
+  }
+}
+
 /* making new tailwindcss utility via css */
 @layer utilities {
   .text-balance {
@@ -37,16 +49,8 @@ html {
     @apply space-y-10 md:space-y-20
   }
 
-
   .__item_grid {
     @apply grid max-sm:grid-cols-[40px_1fr] grid-cols-[40px_1fr_100px] items-center gap-2 md:gap-4 px-3 py-5 rounded-md text-sm
   }
 
-  .__primary_text_color {
-    @apply text-neutral-800 dark:text-neutral-50
-  }
-
-  .__secondary_text_color {
-    @apply text-neutral-500 dark:text-neutral-400
-  }
 }
