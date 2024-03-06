@@ -8,12 +8,12 @@ export default function MyName() {
   const name = "Sai Htun ";
   const GLYPHS =
     "ラドクリフマラソンわ谷たしワタシんょンョたばこタバコとう信きょうトウキョウ0123456789±!@#$%^&*()_+ABCDEFG忠HIJKLMNOPQRSTUVWXYZ";
-  const speed = 0.3;
+  const speed = 0.25;
   const chinese_name = "谷 _ 忠 _ 信";
 
   return (
     <button
-      className={cn("font-mono font-semibold", styles.btn)}
+      className={cn("font-mono font-semibold text-left ", styles.btn)}
       style={{ "--speed": speed }}
     >
       {name.split("").map((char, index) => {
@@ -40,7 +40,7 @@ export default function MyName() {
           </span>
         );
       })}
-      <span className="sr-only opacity-0">{name}</span>
+      <p className="text-shadow-gray text-sm font-sans">Software Engineer</p>
     </button>
   );
 }

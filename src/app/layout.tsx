@@ -4,6 +4,8 @@ import { GeistMono } from "geist/font/mono";
 import { cn } from "./lib/utils/cn";
 import "./globals.css";
 import ThemeProvider from "./contexts/theme-provider";
+import MainFooter from "./components/main-footer";
+import MainHeader from "./components/main-header";
 
 export const metadata: Metadata = {
   title: "Sai | Software Engineer",
@@ -24,7 +26,9 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <div className="max-w-[900px] h-screen my-[100px] mx-auto text-charcoal-gray font-sans">
+            <MainHeader />
             {children}
+            <MainFooter />
           </div>
         </ThemeProvider>
       </body>

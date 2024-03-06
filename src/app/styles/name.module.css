@@ -5,7 +5,6 @@
   background: transparent;
   cursor: pointer;
   position: relative;
-  transform-style: preserve-3d;
 }
 
 .btn::after {
@@ -17,12 +16,12 @@
   transition: opacity 0.2s;
 }
 
-.btn>span:not(.sr-only) {
+.btn>span {
   position: relative;
   color: transparent;
 }
 
-.btn>span:not(.sr-only)::after {
+.btn>span::after {
   content: attr(data-char);
   position: absolute;
   display: inline-block;
@@ -30,7 +29,7 @@
   color: canvasText;
 }
 
-.btn:is(:hover, :focus-visible)>span:not(.sr-only)::after {
+.btn:is(:hover, :focus-visible)>span::after {
   animation: flash calc(var(--speed, 0.25) * 1s) calc(var(--index, 0) * 0.05s) steps(1, end) forwards;
 }
 
