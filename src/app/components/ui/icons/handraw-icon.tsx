@@ -14,7 +14,7 @@ export default function HandrawIcon({ twClasses, ...props }: TProps) {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         stroke="currentColor"
-        stroke-width="0.4"
+        strokeWidth="0.4"
         className={cn("w-6 h-6", twClasses)}
         {...props}
       >
