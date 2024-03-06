@@ -34,7 +34,7 @@ export default function ThemeSwitcher() {
 
   return (
     <button
-      className="w-[38px] max-h-[25px] hover:max-h-[20px] font-medium hover:text-sm transition-all border-b-charcoal-gray border-b-2 overflow-hidden"
+      className="w-[38px] max-h-[28px] py-1 hover:pb-0 font-medium hover:text-sm transition-all border-b-charcoal-gray border-b-2 overflow-hidden"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       <motion.p
