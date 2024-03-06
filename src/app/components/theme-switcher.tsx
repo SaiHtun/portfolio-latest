@@ -28,13 +28,13 @@ export default function ThemeSwitcher() {
     },
     lightMove: {
       opacity: 1,
-      y: -20,
+      y: -24,
     },
   };
 
   return (
     <button
-      className="max-h-[22px] font-medium text-sm border-b-charcoal-gray border-b-2 overflow-hidden"
+      className="w-[38px] max-h-[25px] hover:max-h-[20px] font-medium hover:text-sm transition-all border-b-charcoal-gray border-b-2 overflow-hidden"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       <motion.p
