@@ -9,7 +9,7 @@ export default function Experience({ experience }: TProps) {
   const { company, position, timeline, companyIcon } = experience;
 
   return (
-    <div className="__item_grid hover:bg-neutral-100 hover:dark:bg-neutral-800 transition-colors cursor-pointer">
+    <div className="__item_grid hover:bg-neutral-50 hover:dark:bg-neutral-800 transition-colors cursor-pointer">
       <div className="grid place-items-center">{companyIcon}</div>
       <div>
         <h3>{company}</h3>

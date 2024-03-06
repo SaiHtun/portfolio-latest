@@ -5,7 +5,7 @@ import ShowcaseContainer from "./ui/showcase-container";
 
 export default function MoreAboutMe() {
   return (
-    <ShowcaseContainer title="more about me">
+    <ShowcaseContainer title="more">
       <div className="grid md:grid-cols-2 gap-y-10  __secondary_text_color">
         <div className="space-y-4 text-pretty">
           <p>
@@ -22,19 +22,13 @@ export default function MoreAboutMe() {
             <span>&lt;div/&gt;</span> and make the <span>&lt;button/&gt;</span>{" "}
             works!
           </p>
-          <p>
-            I speak{" "}
-            <span className="font-mono text-sm">
-              {" "}
-              “hello” “你好” “မင်္ဂလာပါ”{" "}
-            </span>
-          </p>
+          <p>I speak “hello” “你好” “မင်္ဂလာပါ”</p>
         </div>
         <div className="place-self-end text-end">
           <h2 className="__primary_text_color">
             tools I love, but not limited to.
           </h2>
-          <div className="word-spacing-wide font-mono text-sm">
+          <div className="word-spacing-wide">
             <p>html css javascript typescript react</p>
             <p>node restapi graphql sql nosql </p>
             <p>docker kubernetes aws </p>

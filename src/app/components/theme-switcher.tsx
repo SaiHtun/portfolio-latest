@@ -14,7 +14,7 @@ export default function ThemeSwitcher() {
 
   return (
     <button
-      className="font-mono text-sm"
+      className="font-medium text-sm"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       {theme === "dark" ? <span>light</span> : <span>dark</span>}
