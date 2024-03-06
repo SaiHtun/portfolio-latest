@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { cn } from "~/lib/utils/cn";
+import { cn } from "lib/utils/cn";
 
 export default function SaiIcon() {
   const [hovered, setHovered] = useState(false);

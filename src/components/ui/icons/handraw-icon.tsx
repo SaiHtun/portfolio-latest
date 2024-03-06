@@ -1,7 +1,7 @@
-import MainIconWrapper from "~/ui/icons/main-icon-wrapper";
+import MainIconWrapper from "components/ui/icons/main-icon-wrapper";
 import type { SVGProps } from "react";
 import { ClassValue } from "clsx";
-import { cn } from "~/lib/utils/cn";
+import { cn } from "lib/utils/cn";
 
 type TProps = {
   twClasses?: ClassValue;

@@ -1,6 +1,6 @@
 import React from "react";
 import { TProject } from "~/constants/project-list";
-import TechPill from "~/ui/tech-pill";
+import TechPill from "~/components/ui/tech-pill";
 
 type Props = {
   project: TProject;

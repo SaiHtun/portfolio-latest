@@ -1,5 +1,5 @@
 import React from "react";
-import Pulse from "./ui/pulse";
+import Pulse from "~/ui/pulse";
 
 export default function Announcement() {
   return (

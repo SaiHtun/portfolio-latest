@@ -1,4 +1,4 @@
-import MainIconWrapper from "~/ui/icons/main-icon-wrapper";
+import MainIconWrapper from "components/ui/icons/main-icon-wrapper";
 import { GitBranchPlus, Mail, Linkedin } from "lucide-react";
 import Link from "next/link";
 

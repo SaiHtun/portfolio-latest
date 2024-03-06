@@ -1,6 +1,6 @@
 import React from "react";
 import { ClassValue } from "clsx";
-import { cn } from "~/lib/utils/cn";
+import { cn } from "lib/utils/cn";
 
 type TProps = {
   twClasses?: ClassValue;

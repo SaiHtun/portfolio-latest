@@ -1,5 +1,5 @@
-import Experience from "./ui/experience";
-import ShowcaseContainer from "./ui/showcase-container";
+import Experience from "~/ui/experience";
+import ShowcaseContainer from "~/ui/showcase-container";
 import { experienceList } from "~/constants/experience-list";
 
 export default function Experiences() {

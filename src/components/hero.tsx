@@ -1,5 +1,5 @@
-import ShowcaseContainer from "~/ui/showcase-container";
-import Socials from "./ui/socials";
+import ShowcaseContainer from "~/components/ui/showcase-container";
+import Socials from "~/ui/socials";
 
 export default function Hero() {
   return (

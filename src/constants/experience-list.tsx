@@ -1,5 +1,5 @@
-import AppleCompanyIcon from "~/components/ui/icons/apple-company-icon";
-import TextInitialIcon from "~/components/ui/icons/text-initial-icon";
+import AppleCompanyIcon from "components/ui/icons/apple-company-icon";
+import TextInitialIcon from "components/ui/icons/text-initial-icon";
 
 export type TExperience = {
   id: string;

@@ -1,8 +1,8 @@
-import MainIconWrapper from "~/ui/icons/main-icon-wrapper";
+import MainIconWrapper from "components/ui/icons/main-icon-wrapper";
 import { Clock4 } from "lucide-react";
-import HandrawIcon from "~/components/ui/icons/handraw-icon";
-import TextInitalIcon from "~/components/ui/icons/text-initial-icon";
-import InstagramIcon from "~/components/ui/icons/instagram-icon";
+import HandrawIcon from "components/ui/icons/handraw-icon";
+import TextInitalIcon from "components/ui/icons/text-initial-icon";
+import InstagramIcon from "components/ui/icons/instagram-icon";
 
 export type TProject = {
   id: number;

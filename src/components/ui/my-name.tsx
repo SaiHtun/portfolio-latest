@@ -1,7 +1,7 @@
 "use client";
 // hugely inspired by https://twitter.com/jh3yy
 // https://codepen.io/jh3y/pen/GRLKMPY
-import { cn } from "~/lib/utils/cn";
+import { cn } from "lib/utils/cn";
 import styles from "~/styles/name.module.css";
 
 export default function MyName() {

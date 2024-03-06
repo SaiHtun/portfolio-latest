@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { cn } from "./lib/utils/cn";
-import "./globals.css";
-import ThemeProvider from "./contexts/theme-provider";
-import MainFooter from "./components/main-footer";
-import MainHeader from "./components/main-header";
+import { cn } from "../lib/utils/cn";
+import "~/styles/globals.css";
+import ThemeProvider from "~/contexts/theme-provider";
+import MainFooter from "~/components/main-footer";
+import MainHeader from "~/components/main-header";
 
 export const metadata: Metadata = {
   title: "Sai | Software Engineer",

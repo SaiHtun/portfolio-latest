@@ -1,6 +1,6 @@
 import React from "react";
 import MainIconWrapper from "./main-icon-wrapper";
-import textInitialParser from "~/lib/utils/text-inital-parser";
+import textInitialParser from "lib/utils/text-inital-parser";
 
 type TProps = {
   text: string;

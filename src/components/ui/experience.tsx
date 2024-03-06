@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { type TExperience } from "~/constants/experience-list";
+import { type TExperience } from "constants/experience-list";
 import { motion, Variants } from "framer-motion";
 
 type TProps = {
