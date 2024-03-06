@@ -10,8 +10,7 @@ html {
   box-sizing: border-box;
 }
 
-/*
-* {
+/* * {
   border: 1px dotted black
 } */
 
@@ -51,7 +50,7 @@ html {
   }
 
   .__item_grid {
-    @apply grid max-sm:grid-cols-[40px_1fr] grid-cols-[40px_1fr_100px] items-center gap-x-3 md:gap-x-4 px-3 py-5 rounded-md text-sm
+    @apply grid max-sm:grid-cols-[40px_1fr] grid-cols-[40px_1fr_1fr] items-center gap-x-3 md:gap-x-4 px-3 py-5 rounded-md text-sm
   }
 
 }
