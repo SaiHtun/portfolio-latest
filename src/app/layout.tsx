@@ -4,8 +4,6 @@ import { GeistMono } from "geist/font/mono";
 import { cn } from "../lib/utils/cn";
 import "~/styles/globals.css";
 import ThemeProvider from "~/contexts/theme-provider";
-import MainFooter from "~/components/main-footer";
-import MainHeader from "~/components/main-header";
 
 export const metadata: Metadata = {
   title: "Sai | Software Engineer",
@@ -24,13 +22,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <ThemeProvider>
-          <div className="flex flex-col justify-between max-w-[900px] h-full my-[100px] mx-auto text-charcoal-gray font-sans px-6">
-            <MainHeader />
-            {children}
-            <MainFooter />
-          </div>
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
