@@ -16,15 +16,15 @@ export default function ThemeSwitcher() {
   const variants: Variants = {
     darkInit: {
       opacity: 1,
-      y: 0,
+      y: 1,
     },
     darkMove: {
       opacity: 0,
-      y: 20,
+      y: 22,
     },
     lightInit: {
       opacity: 0,
-      y: 20,
+      y: 1,
     },
     lightMove: {
       opacity: 1,
@@ -34,7 +34,7 @@ export default function ThemeSwitcher() {
 
   return (
     <button
-      className="w-[38px] max-h-[28px] py-1 hover:pb-0 font-medium hover:text-sm transition-all border-b-charcoal-gray border-b-2 overflow-hidden"
+      className="group relative w-[38px] max-h-[28px] py-1 font-medium overflow-hidden"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       <motion.p
@@ -44,11 +44,13 @@ export default function ThemeSwitcher() {
         dark
       </motion.p>
       <motion.p
+        className="-translate-y-[24px]"
         variants={variants}
         animate={theme === "light" ? "lightInit" : "lightMove"}
       >
         light
       </motion.p>
+      <div className="group w-[38px] h-[2px] bg-charcoal-gray absolute bottom-0 left-0 scale-1 group-hover:scale-75 transition-all"></div>
     </button>
   );
 }
