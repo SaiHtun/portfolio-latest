@@ -2,9 +2,12 @@
 // hugely inspired by https://twitter.com/jh3yy
 // https://codepen.io/jh3y/pen/GRLKMPY
 import { cn } from "lib/utils/cn";
+import { useRouter } from "next/navigation";
 import styles from "~/styles/name.module.css";
 
 export default function MyName() {
+  const router = useRouter();
+
   const name = "Sai Htun ";
   const GLYPHS =
     "ラドクリフマラソンわ谷たしワタシんょンョたばこタバコとう信きょうトウキョウ0123456789±!@#$%^&*()_+ABCDEFG忠HIJKLMNOPQRSTUVWXYZ";
@@ -15,6 +18,7 @@ export default function MyName() {
     <button
       className={cn("font-mono font-semibold text-left ", styles.btn)}
       style={{ "--speed": speed }}
+      onClick={() => router.push("/")}
     >
       {name.split("").map((char, index) => {
         return (

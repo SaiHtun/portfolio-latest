@@ -4,7 +4,7 @@ import MyName from "./ui/my-name";
 
 export default function MainHeader() {
   return (
-    <header className="flex justify-between items-end mb-[80px] md:mb-[160px] px-6">
+    <header className="flex justify-between items-end mb-[80px] md:mb-[160px] ">
       <MyName />
       <ThemeSwitcher />
     </header>

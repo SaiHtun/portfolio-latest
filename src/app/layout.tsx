@@ -25,7 +25,7 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>
-          <div className="max-w-[900px] h-screen my-[100px] mx-auto text-charcoal-gray font-sans">
+          <div className="flex flex-col justify-between max-w-[900px] h-full my-[100px] mx-auto text-charcoal-gray font-sans px-6">
             <MainHeader />
             {children}
             <MainFooter />

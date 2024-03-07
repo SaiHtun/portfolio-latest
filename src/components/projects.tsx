@@ -2,6 +2,7 @@ import React from "react";
 import ShowcaseContainer from "./ui/showcase-container";
 import Project from "./ui/project";
 import { projectList } from "~/constants/project-list";
+import Link from "next/link";
 
 export default function Projects() {
   return (

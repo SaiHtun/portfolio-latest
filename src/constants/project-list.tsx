@@ -8,6 +8,7 @@ export type TProject = {
   id: number;
   name: string;
   intro: string;
+  url: string;
   topics: string[];
   projectIcon: React.ReactNode;
 };
@@ -18,6 +19,7 @@ export const projectList: TProject[] = [
     name: "Timesync",
     intro: "global timezones coordinator",
     topics: ["React.js", "web"],
+    url: "/projects/timesync",
     projectIcon: (
       <MainIconWrapper>
         <Clock4 />
@@ -29,6 +31,7 @@ export const projectList: TProject[] = [
     name: "Outstagramm",
     intro: "Instagram clone",
     topics: ["React.js", "Firebase", "web"],
+    url: "/projects/outstagramm",
     projectIcon: (
       <MainIconWrapper>
         <InstagramIcon />
@@ -39,6 +42,7 @@ export const projectList: TProject[] = [
     id: 3,
     name: "Paint Board",
     intro: "darwing with finger gestures",
+    url: "/projects/paint-board",
     topics: ["opencv", "ml/ai"],
     projectIcon: <HandrawIcon />,
   },
@@ -46,6 +50,7 @@ export const projectList: TProject[] = [
     id: 4,
     name: "Jsapi",
     intro: "learning JavaScript without leaving terminal",
+    url: "/projects/jsapi",
     topics: ["Node.js", "cli"],
     projectIcon: <TextInitalIcon text="jsapi" />,
   },

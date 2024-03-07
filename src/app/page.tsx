@@ -6,7 +6,7 @@ import Announcement from "~/components/announcement";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col gap-y-20 md:gap-y-40 px-6">
+    <main className="flex min-h-screen flex-col gap-y-20 md:gap-y-40 ">
       <Hero />
       <Experiences />
       <Projects />
