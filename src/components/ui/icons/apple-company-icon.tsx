@@ -1,4 +1,3 @@
-// import Image from "next/image";
 import { ClassValue } from "clsx";
 import MainIconWrapper from "./main-icon-wrapper";
 import { SVGProps } from "react";

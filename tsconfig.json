@@ -26,7 +26,8 @@
       "~/utitls": ["lib/utils/*"],
       "~/constants/*": ["constants/*"],
       "~/styles/*": ["styles/*"],
-      "~/contexts/*": ["contexts/*"]
+      "~/contexts/*": ["contexts/*"],
+      "~/query/*": ["query/*"]
     },
     "target": "ES2017"
   },

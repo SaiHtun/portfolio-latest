@@ -1,14 +1,15 @@
 import React from "react";
 import ShowcaseContainer from "./ui/showcase-container";
 import Project from "./ui/project";
-import { projectList } from "~/constants/project-list";
-import Link from "next/link";
+import { getProjecstWithIcon } from "~/query/get-projects";
 
-export default function Projects() {
+export default async function Projects() {
+  const projects = await getProjecstWithIcon();
+
   return (
     <ShowcaseContainer title="projects">
-      {projectList.map((project) => (
-        <Project key={project.id} project={project} />
+      {projects.map((project) => (
+        <Project key={project._id} project={project} />
       ))}
     </ShowcaseContainer>
   );

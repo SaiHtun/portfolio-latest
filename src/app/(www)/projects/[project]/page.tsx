@@ -1,5 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import {
+  getProjects,
+  getProjectDetail,
+  TProjectDetail,
+} from "~/query/get-projects";
+import GithubIcon from "~/components/ui/icons/github-icon";
+import { Globe } from "lucide-react";
+import Link from "next/link";
+import MainIconWrapper from "~/components/ui/icons/main-icon-wrapper";
 
 type TProps = {
   params: {
@@ -7,46 +16,74 @@ type TProps = {
   };
 };
 
-const contents = {
-  timesync: {
-    title: "global timezones coordinator",
-    description:
-      "Timesync is an ultimate web application for seamless global timezone coordination. Perfect for scheduling meetings, planning travel, and staying connected across different timezones. Excited to share the URL with your friends? we got you covered!",
-    github: "https://github.com/SaiHtun",
-    imageUrl: "/images/timesync.png",
-    webUrl: "https://timesync.saihtun.xyz",
-    builtWith: ["React.js", "TypeScript", "Jotai", "Vercel"],
-    features: [
-      "light, dark mode",
-      "Lightning-fast fuzzy searching timezones",
-      "Share URL with beloved friends and family, and annoying co-workers",
-      "Schedule meeting minutes threshold",
-      "Support 12/24 hours format",
-      "Dials color options",
-    ],
-    constraints: [
-      "Better experience with desktop browser",
-      "Not every cities are searchable but all timezones are and they're case-insensitive. ( Ex: PST, gmt, pacific standard time, ... )",
-    ],
-  },
-};
+export async function generateStaticParams() {
+  const projects = await getProjects();
+  return projects?.map((p) => ({
+    project: p.name,
+  }));
+}
 
-export default function Page({ params }: TProps) {
-  const k = params.project as keyof typeof contents;
-  const { title, description, github } = contents[k];
+function BodyContent({ infoRaw }: { infoRaw: TProjectDetail["infoRaw"] }) {
+  const childs = infoRaw.flatMap((r) => r.children);
+  return (
+    <div className="my-20 text-sm">
+      {childs.map((c, index) => {
+        return c.marks.length > 0 ? (
+          <h2 key={index} className="font-semibold my-8">
+            {c.text}
+          </h2>
+        ) : (
+          <div className="text-shadow-gray space-y-2">
+            {c.text.split("\n").map((sentence, index) => {
+              return <p key={index}>{sentence}</p>;
+            })}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+export default async function Page({ params }: TProps) {
+  const { description, githubUrl, image, infoRaw, project, websiteUrl } =
+    await getProjectDetail(params.project)!;
 
   return (
-    <div className="w-full h-screen">
-      <div className="w-full h-[100px] ">{params.project}</div>
+    <div className="w-full min-h-screen">
+      <div className="space-y-10 mb-20">
+        <div>
+          <h1 className="font-mono font-bold">{project.name}</h1>
+          <p className="text-shadow-gray">{project.intro}</p>
+        </div>
+        <div className="space-y-4 ">
+          <p className="text-shadow-gray">{description}</p>
+          <div className="flex gap-2">
+            <Link href={githubUrl} className="inline-block">
+              <GithubIcon />
+            </Link>
+
+            {websiteUrl && (
+              <Link href={websiteUrl} className="inline-block">
+                <MainIconWrapper twClasses="bg-transparent dark:bg-transparent">
+                  <Globe size={20} />
+                </MainIconWrapper>
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+
       <Image
-        src={"/images/timesync.png"}
+        src={image.asset.url}
         width={0}
         height={0}
         sizes="100vw"
-        objectFit="cover"
         alt="timesync website screenshot"
-        className="rounded-md w-full h-[400px] object-cover"
+        className="rounded-md w-full object-contain"
+        priority
       />
+
+      <BodyContent infoRaw={infoRaw} />
     </div>
   );
 }

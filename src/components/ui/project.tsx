@@ -1,5 +1,5 @@
 import React from "react";
-import { TProject } from "~/constants/project-list";
+import { type TProject } from "~/query/get-projects";
 import TechPill from "~/components/ui/tech-pill";
 import Link from "next/link";
 
@@ -8,10 +8,10 @@ type Props = {
 };
 
 export default function Project({ project }: Props) {
-  const { name, intro, topics, projectIcon, url } = project;
+  const { name, intro, topics, slug, projectIcon } = project;
 
   return (
-    <Link href={url}>
+    <Link href={`/projects/${slug.current}`}>
       <div className="__item_grid hover:bg-neutral-50 hover:dark:bg-neutral-800 transition-colors cursor-pointer">
         <div className="grid place-items-center">{projectIcon}</div>
         <div>
@@ -20,7 +20,7 @@ export default function Project({ project }: Props) {
         </div>
         <div className="justify-end space-x-2 max-sm:hidden flex">
           {topics.map((t, i) => (
-            <TechPill key={i} techName={t} />
+            <TechPill key={i} techName={t.name} />
           ))}
         </div>
       </div>

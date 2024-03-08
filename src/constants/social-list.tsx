@@ -1,11 +1,12 @@
 import MainIconWrapper from "components/ui/icons/main-icon-wrapper";
 import { GitBranchPlus, Mail, Linkedin } from "lucide-react";
 import Link from "next/link";
+import GithubIcon from "~/components/ui/icons/github-icon";
 
 export const socialList: React.ReactNode[] = [
   <Link href="https://github.com/SaiHtun" key="1">
     <MainIconWrapper twClasses="bg-transparent dark:bg-transparent">
-      <GitBranchPlus size="20px" />
+      <GithubIcon />
     </MainIconWrapper>
   </Link>,
 
