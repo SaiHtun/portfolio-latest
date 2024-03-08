@@ -3,6 +3,7 @@ import { Clock4 } from "lucide-react";
 import HandrawIcon from "components/ui/icons/handraw-icon";
 import TextInitalIcon from "components/ui/icons/text-initial-icon";
 import InstagramIcon from "components/ui/icons/instagram-icon";
+import { TypedObject } from "sanity";
 
 export type TProject = {
   _id: number;
@@ -13,14 +14,6 @@ export type TProject = {
   };
   topics: { name: string }[];
   projectIcon: React.ReactNode;
-};
-
-type TInfoRaw = {
-  children: {
-    text: string;
-    marks: string[];
-    _type: string;
-  };
 };
 
 export type TProjectDetail = {
@@ -34,7 +27,7 @@ export type TProjectDetail = {
   };
   githubUrl: string;
   websiteUrl: string;
-  infoRaw: TInfoRaw[];
+  infoRaw: TypedObject;
 };
 
 async function fetchData(gqlQueryBody: { [key: string]: unknown }) {

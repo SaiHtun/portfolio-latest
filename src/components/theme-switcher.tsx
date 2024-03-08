@@ -9,6 +9,8 @@ export default function ThemeSwitcher() {
 
   useEffect(() => {
     setMounted(true);
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    setTheme(darkThemeMq.matches ? "dark" : "light");
   }, []);
 
   if (!mounted) return null;
@@ -16,37 +18,38 @@ export default function ThemeSwitcher() {
   const variants: Variants = {
     darkInit: {
       opacity: 1,
-      y: 1,
+      y: 0,
     },
     darkMove: {
       opacity: 0,
       y: 22,
     },
     lightInit: {
-      opacity: 0,
-      y: 1,
+      opacity: 1,
+      y: -28,
     },
     lightMove: {
-      opacity: 1,
-      y: -24,
+      opacity: 0,
+      y: 0,
     },
   };
 
   return (
     <button
-      className="group relative w-[38px] max-h-[28px] py-1 font-medium overflow-hidden"
+      className="group relative w-[38px] h-[28px] max-h-[28px] py-1 font-medium overflow-hidden"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       <motion.p
+        className="absolute w-[38px] h-[28px] left-0 -bottom-1"
         variants={variants}
         animate={theme === "dark" ? "darkMove" : "darkInit"}
       >
         dark
       </motion.p>
       <motion.p
-        className="-translate-y-[24px]"
+        className="absolute w-[38px] h-[28px] left-0 -bottom-8"
         variants={variants}
-        animate={theme === "light" ? "lightInit" : "lightMove"}
+        animate={theme === "light" ? "lightMove" : "lightInit"}
       >
         light
       </motion.p>

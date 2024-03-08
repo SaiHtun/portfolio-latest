@@ -1,14 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import {
-  getProjects,
-  getProjectDetail,
-  TProjectDetail,
-} from "~/query/get-projects";
+import { getProjects, getProjectDetail } from "~/query/get-projects";
 import GithubIcon from "~/components/ui/icons/github-icon";
 import { Globe } from "lucide-react";
 import Link from "next/link";
 import MainIconWrapper from "~/components/ui/icons/main-icon-wrapper";
+import PortableContent from "~/components/portable-content";
 
 type TProps = {
   params: {
@@ -21,27 +18,6 @@ export async function generateStaticParams() {
   return projects?.map((p) => ({
     project: p.name,
   }));
-}
-
-function BodyContent({ infoRaw }: { infoRaw: TProjectDetail["infoRaw"] }) {
-  const childs = infoRaw.flatMap((r) => r.children);
-  return (
-    <div className="my-20 text-sm">
-      {childs.map((c, index) => {
-        return c.marks.length > 0 ? (
-          <h2 key={index} className="font-semibold my-8">
-            {c.text}
-          </h2>
-        ) : (
-          <div className="text-shadow-gray space-y-2">
-            {c.text.split("\n").map((sentence, index) => {
-              return <p key={index}>{sentence}</p>;
-            })}
-          </div>
-        );
-      })}
-    </div>
-  );
 }
 
 export default async function Page({ params }: TProps) {
@@ -77,13 +53,15 @@ export default async function Page({ params }: TProps) {
         src={image.asset.url}
         width={0}
         height={0}
+        placeholder="blur"
+        blurDataURL="/images/blur-bg-placeholder.png"
         sizes="100vw"
         alt="timesync website screenshot"
         className="rounded-md w-full object-contain"
         priority
       />
 
-      <BodyContent infoRaw={infoRaw} />
+      <PortableContent infoRaw={infoRaw} />
     </div>
   );
 }
