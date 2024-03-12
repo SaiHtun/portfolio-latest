@@ -6,6 +6,7 @@ import { Globe } from "lucide-react";
 import Link from "next/link";
 import MainIconWrapper from "~/components/ui/icons/main-icon-wrapper";
 import PortableContent from "~/components/portable-content";
+import { getPlaiceholder } from "plaiceholder";
 
 type TProps = {
   params: {
@@ -20,9 +21,27 @@ export async function generateStaticParams() {
   }));
 }
 
+async function getImage(src: string) {
+  const buffer = await fetch(src).then(async (res) =>
+    Buffer.from(await res.arrayBuffer())
+  );
+
+  const {
+    metadata: { height, width },
+    ...plaiceholder
+  } = await getPlaiceholder(buffer);
+
+  return {
+    ...plaiceholder,
+    img: { src, height, width },
+  };
+}
+
 export default async function Page({ params }: TProps) {
   const { description, githubUrl, image, infoRaw, project, websiteUrl } =
     await getProjectDetail(params.project)!;
+
+  const { base64, img } = await getImage(image.asset.url);
 
   return (
     <div className="w-full min-h-screen">
@@ -50,14 +69,12 @@ export default async function Page({ params }: TProps) {
       </div>
 
       <Image
-        src={image.asset.url}
-        width={0}
-        height={0}
+        {...img}
         placeholder="blur"
-        blurDataURL="/images/blur-bg-placeholder.png"
+        blurDataURL={base64}
         sizes="100vw"
         alt="timesync website screenshot"
-        className="rounded-md w-full object-contain"
+        className="rounded-md"
         priority
       />
 
