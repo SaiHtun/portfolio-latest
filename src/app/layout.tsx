@@ -4,6 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import { cn } from "../lib/utils/cn";
 import "~/styles/globals.css";
 import ThemeProvider from "~/contexts/theme-provider";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Sai | Software Engineer",
@@ -23,6 +24,7 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
