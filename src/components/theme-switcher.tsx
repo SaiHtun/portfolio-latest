@@ -11,7 +11,7 @@ export default function ThemeSwitcher() {
     setMounted(true);
     const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
     setTheme(darkThemeMq.matches ? "dark" : "light");
-  }, []);
+  }, [setTheme]);
 
   if (!mounted) return null;
 
