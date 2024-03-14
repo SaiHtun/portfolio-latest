@@ -6,25 +6,21 @@ async function getImage(src: string) {
     Buffer.from(await res.arrayBuffer())
   );
 
-  const plaiceholder = await getPlaiceholder(buffer);
-
-  return {
-    ...plaiceholder,
-    imgSrc: src,
-  };
+  return await getPlaiceholder(buffer);
 }
 
 type TProps = { src: string };
 
 export default async function BlurPlaceholder({ src }: TProps) {
-  const { base64, imgSrc } = await getImage(src);
+  const { base64 } = await getImage(src);
 
   return (
     <Image
       className="w-full aspect-video rounded-md"
       width={0}
       height={0}
-      src={imgSrc}
+      src={src}
+      priority
       alt="placeholder image while loading a video"
       placeholder="blur"
       blurDataURL={base64}
