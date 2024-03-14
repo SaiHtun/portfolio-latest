@@ -102,7 +102,7 @@ export async function getProjectDetail(
   };
 
   const data = await fetchData(projectDetailQuery);
-  return data.allProjectDetail[0];
+  return await data.allProjectDetail[0];
 }
 
 export const projectIcons = {

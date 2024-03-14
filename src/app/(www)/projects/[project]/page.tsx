@@ -1,12 +1,11 @@
 import React from "react";
-import Image from "next/image";
 import { getProjects, getProjectDetail } from "~/query/get-projects";
 import GithubIcon from "~/components/ui/icons/github-icon";
 import { Globe } from "lucide-react";
 import Link from "next/link";
 import MainIconWrapper from "~/components/ui/icons/main-icon-wrapper";
 import PortableContent from "~/components/portable-content";
-import { getPlaiceholder } from "plaiceholder";
+import ProjectVideo from "~/components/ui/project-video";
 
 type TProps = {
   params: {
@@ -21,27 +20,9 @@ export async function generateStaticParams() {
   }));
 }
 
-async function getImage(src: string) {
-  const buffer = await fetch(src).then(async (res) =>
-    Buffer.from(await res.arrayBuffer())
-  );
-
-  const {
-    metadata: { height, width },
-    ...plaiceholder
-  } = await getPlaiceholder(buffer);
-
-  return {
-    ...plaiceholder,
-    img: { src, height, width },
-  };
-}
-
 export default async function Page({ params }: TProps) {
-  const { description, githubUrl, image, infoRaw, project, websiteUrl } =
+  const { description, githubUrl, infoRaw, project, websiteUrl } =
     await getProjectDetail(params.project)!;
-
-  const { base64, img } = await getImage(image.asset.url);
 
   return (
     <div className="w-full min-h-screen">
@@ -67,17 +48,10 @@ export default async function Page({ params }: TProps) {
           </div>
         </div>
       </div>
-
-      <Image
-        {...img}
-        placeholder="blur"
-        blurDataURL={base64}
-        sizes="100vw"
-        alt="timesync website screenshot"
-        className="rounded-md"
-        priority
+      <ProjectVideo
+        bucketName="saihtunbkt"
+        filePath="portfolio/projects/timesync.mp4"
       />
-
       <PortableContent infoRaw={infoRaw} />
     </div>
   );

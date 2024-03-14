@@ -1,3 +1,5 @@
+import { assertValue } from "~/lib/utils/assert-value";
+
 export const api_version =
   process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-03-07";
 
@@ -22,11 +24,3 @@ export const project_id = assertValue(
 // );
 
 export const useCdn = false;
-
-function assertValue<T>(v: T | undefined, errorMessage: string): T {
-  if (v === undefined) {
-    throw new Error(errorMessage);
-  }
-
-  return v;
-}
