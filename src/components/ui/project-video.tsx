@@ -1,23 +1,31 @@
-"use client";
-
-import Video from "next-video";
-import { useVideoUrl } from "~/lib/hooks/use-video-url";
-import SpinnerPlaceholder from "./spinner-placeholder";
+import { region, accessKeyId, secretAccessKey } from "app-env";
+import { S3Service } from "~/lib/services/s3-service";
 
 export type TProps = {
   bucketName: string;
   filePath: string;
+  posterPath: string;
 };
 
-export default function ProjectVideo({ bucketName, filePath }: TProps) {
-  const { data, isError, isLoading } = useVideoUrl(bucketName, filePath);
-
-  if (isError) return <div>Error..</div>;
+export default async function ProjectVideo({
+  bucketName,
+  filePath,
+  posterPath,
+}: TProps) {
+  const s3 = new S3Service(region, accessKeyId, secretAccessKey);
+  const url = await s3.getVideoUrl(bucketName, filePath);
 
   return (
-    <div className="w-full aspect-video p-2 border border-shadow-gray/60 dark:border-neutral-800 rounded-md grid place-items-center">
-      {isLoading && <SpinnerPlaceholder />}
-      <Video src={data?.videoUrl} />
-    </div>
+    <video
+      className="w-full aspect-video object-cover rounded-md"
+      controls
+      loop
+      autoPlay
+      muted
+      playsInline
+      poster={posterPath}
+    >
+      <source src={url} type="video/mp4" />
+    </video>
   );
 }

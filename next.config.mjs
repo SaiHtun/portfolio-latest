@@ -1,4 +1,4 @@
-import { withNextVideo } from "next-video/process";
+import withPlaiceholder from "@plaiceholder/next";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -12,12 +12,4 @@ const nextConfig = {
   },
 };
 
-export default withNextVideo(nextConfig, {
-  provider: "amazon-s3",
-  providerConfig: {
-    "amazon-s3": {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    },
-  },
-});
+export default withPlaiceholder(nextConfig);

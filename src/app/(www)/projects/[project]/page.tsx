@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { getProjects, getProjectDetail } from "~/query/get-projects";
 import GithubIcon from "~/components/ui/icons/github-icon";
 import { Globe } from "lucide-react";
@@ -6,6 +6,7 @@ import Link from "next/link";
 import MainIconWrapper from "~/components/ui/icons/main-icon-wrapper";
 import PortableContent from "~/components/portable-content";
 import ProjectVideo from "~/components/ui/project-video";
+import BlurPlaceholder from "~/components/ui/blur-placeholder";
 
 type TProps = {
   params: {
@@ -21,7 +22,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: TProps) {
-  const { description, githubUrl, infoRaw, project, websiteUrl } =
+  const { description, githubUrl, infoRaw, project, websiteUrl, image } =
     await getProjectDetail(params.project)!;
 
   return (
@@ -48,10 +49,13 @@ export default async function Page({ params }: TProps) {
           </div>
         </div>
       </div>
-      <ProjectVideo
-        bucketName="saihtunbkt"
-        filePath="portfolio/projects/timesync.mp4"
-      />
+      <Suspense fallback={<BlurPlaceholder src={image.asset.url} />}>
+        <ProjectVideo
+          bucketName="saihtunbkt"
+          filePath="portfolio/projects/timesync.mp4"
+          posterPath={image.asset.url}
+        />
+      </Suspense>
       <PortableContent infoRaw={infoRaw} />
     </div>
   );

@@ -33,9 +33,6 @@ export class S3Service {
       });
 
       const res = await fetch(signedUrl, {
-        headers: {
-          "Content-type": "video/mp4",
-        },
         cache: "no-store",
       });
 

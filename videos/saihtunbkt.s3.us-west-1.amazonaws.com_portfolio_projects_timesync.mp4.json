@@ -1,8 +1,0 @@
-{
-  "status": "pending",
-  "originalFilePath": "https://saihtunbkt.s3.us-west-1.amazonaws.com/portfolio/projects/timesync.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA5FTZFINMNGUMKWVH%2F20240314%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20240314T050743Z&X-Amz-Expires=3600&X-Amz-Signature=8b6d33a8226f913b33be1e654e02a764ebd4b7b488792433f94c5a1caaf9d008&X-Amz-SignedHeaders=host&response-content-type=video%2Fmp4&x-id=GetObject",
-  "provider": "amazon-s3",
-  "providerMetadata": {},
-  "createdAt": 1710392998053,
-  "updatedAt": 1710392998053
-}
