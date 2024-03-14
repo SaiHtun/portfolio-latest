@@ -4,7 +4,6 @@ import {
   GetObjectCommand,
 } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { accessKeyId, secretAccessKey, region } from "~/app-env";
 
 export class S3Service {
   s3: S3Client;
@@ -54,5 +53,3 @@ export class S3Service {
     }
   }
 }
-
-export const s3 = new S3Service(region, accessKeyId, secretAccessKey);

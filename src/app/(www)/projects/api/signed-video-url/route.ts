@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { s3 } from "~/lib/services/s3-service";
+import { accessKeyId, secretAccessKey, region } from "~/app-env";
+import { S3Service } from "~/lib/services/s3-service";
 
 type TReqBody = {
   bucketName: string;
@@ -8,6 +9,7 @@ type TReqBody = {
 
 export async function POST(request: NextRequest, response: NextResponse) {
   const { bucketName, filePath } = (await request.json()) as TReqBody;
+  const s3 = new S3Service(region, accessKeyId, secretAccessKey);
   const signedUrl = await s3.getVideoUrl(bucketName, filePath);
 
   const data = await fetch(signedUrl!);
