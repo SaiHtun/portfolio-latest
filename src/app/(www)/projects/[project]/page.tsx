@@ -53,7 +53,6 @@ export default async function Page({ params }: TProps) {
         <ProjectVideo
           bucketName="saihtunbkt"
           filePath="portfolio/projects/timesync.mp4"
-          posterPath={image.asset.url}
         />
       </Suspense>
       <PortableContent infoRaw={infoRaw} />
