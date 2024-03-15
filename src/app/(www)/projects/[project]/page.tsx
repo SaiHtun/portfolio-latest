@@ -54,6 +54,7 @@ export default async function Page({ params }: TProps) {
       </div>
       <Suspense fallback={<BlurPlaceholder src={base64} />}>
         <ProjectVideo
+          posterPath={image.asset.url}
           bucketName="saihtunbkt"
           filePath="portfolio/projects/timesync.mp4"
         />

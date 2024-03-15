@@ -2,7 +2,7 @@ import Image from "next/image";
 
 type TProps = { src: string };
 
-export default async function BlurPlaceholder({ src }: TProps) {
+export default function BlurPlaceholder({ src }: TProps) {
   return (
     <Image
       className="w-full aspect-video rounded-md"

@@ -4,9 +4,14 @@ import { S3Service } from "~/lib/services/s3-service";
 export type TProps = {
   bucketName: string;
   filePath: string;
+  posterPath: string;
 };
 
-export default async function ProjectVideo({ bucketName, filePath }: TProps) {
+export default async function ProjectVideo({
+  bucketName,
+  filePath,
+  posterPath,
+}: TProps) {
   const s3 = new S3Service(region, accessKeyId, secretAccessKey);
   const url = await s3.getVideoUrl(bucketName, filePath);
 
@@ -18,6 +23,7 @@ export default async function ProjectVideo({ bucketName, filePath }: TProps) {
       autoPlay
       muted
       playsInline
+      poster={posterPath}
     >
       <source src={url} type="video/mp4" />
     </video>
