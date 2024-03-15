@@ -7,6 +7,7 @@ import MainIconWrapper from "~/components/ui/icons/main-icon-wrapper";
 import PortableContent from "~/components/portable-content";
 import ProjectVideo from "~/components/ui/project-video";
 import BlurPlaceholder from "~/components/ui/blur-placeholder";
+import { getBase64Img } from "~/lib/utils/get-base64-img";
 
 type TProps = {
   params: {
@@ -24,6 +25,8 @@ export async function generateStaticParams() {
 export default async function Page({ params }: TProps) {
   const { description, githubUrl, infoRaw, project, websiteUrl, image } =
     await getProjectDetail(params.project)!;
+
+  const { base64 } = await getBase64Img(image.asset.url);
 
   return (
     <div className="w-full min-h-screen">
@@ -49,7 +52,7 @@ export default async function Page({ params }: TProps) {
           </div>
         </div>
       </div>
-      <Suspense fallback={<BlurPlaceholder src={image.asset.url} />}>
+      <Suspense fallback={<BlurPlaceholder src={base64} />}>
         <ProjectVideo
           bucketName="saihtunbkt"
           filePath="portfolio/projects/timesync.mp4"
