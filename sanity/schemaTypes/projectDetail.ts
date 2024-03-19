@@ -49,6 +49,11 @@ export default defineType({
       ],
     }),
     defineField({
+      name: "videoUrl",
+      title: "Video Url",
+      type: "string",
+    }),
+    defineField({
       name: "info",
       title: "Info",
       type: "array",
