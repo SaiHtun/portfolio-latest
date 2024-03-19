@@ -17,6 +17,11 @@ export default function PortableContent({ infoRaw }: { infoRaw: TypedObject }) {
         </p>
       ),
     },
+    listItem: {
+      bullet: ({ children }) => (
+        <li className="text-shadow-gray">{children}</li>
+      ),
+    },
   };
 
   return (

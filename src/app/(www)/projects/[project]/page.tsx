@@ -23,8 +23,15 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: TProps) {
-  const { description, githubUrl, infoRaw, project, websiteUrl, image } =
-    await getProjectDetail(params.project)!;
+  const {
+    description,
+    githubUrl,
+    infoRaw,
+    project,
+    websiteUrl,
+    image,
+    videoUrl,
+  } = await getProjectDetail(params.project)!;
 
   const { base64 } = await getBase64Img(image.asset.url);
 
@@ -56,7 +63,7 @@ export default async function Page({ params }: TProps) {
         <ProjectVideo
           posterPath={image.asset.url}
           bucketName="saihtunbkt"
-          filePath="portfolio/projects/timesync.mp4"
+          filePath={videoUrl}
         />
       </Suspense>
       <PortableContent infoRaw={infoRaw} />

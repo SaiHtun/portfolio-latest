@@ -25,6 +25,7 @@ export type TProjectDetail = {
       url: string;
     };
   };
+  videoUrl: string;
   githubUrl: string;
   websiteUrl: string;
   infoRaw: TypedObject;
@@ -92,6 +93,7 @@ export async function getProjectDetail(
               url
             }
           }
+          videoUrl
           githubUrl
           websiteUrl
           infoRaw
