@@ -1,7 +1,12 @@
 import { assertValue } from "~/lib/utils/assert-value";
 
-const { AWS_REGION, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, BUCKET_NAME } =
-  process.env;
+const {
+  AWS_REGION,
+  AWS_ACCESS_KEY_ID,
+  AWS_SECRET_ACCESS_KEY,
+  BUCKET_NAME,
+  SANITY_WEBHOOK_SECRET,
+} = process.env;
 
 // aws envs;
 export const region = assertValue(AWS_REGION, "No aws region provided.");
@@ -17,4 +22,9 @@ export const secretAccessKey = assertValue(
 export const bucketName = assertValue(
   BUCKET_NAME,
   "No S3 bucketName provided."
+);
+
+export const sanityWebhookSecret = assertValue(
+  SANITY_WEBHOOK_SECRET,
+  "No sanity webhook secret"
 );

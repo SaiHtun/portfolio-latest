@@ -31,7 +31,10 @@ export type TProjectDetail = {
   infoRaw: TypedObject;
 };
 
-async function fetchData(gqlQueryBody: { [key: string]: unknown }) {
+async function fetchData(
+  gqlQueryBody: { [key: string]: unknown },
+  cacheTags: string[] = []
+) {
   const headers = {
     "content-type": "application/json",
     Authorization: `bearer ${process.env.SANITY_SECRET_TOKEN}`,
@@ -42,6 +45,9 @@ async function fetchData(gqlQueryBody: { [key: string]: unknown }) {
       method: "POST",
       headers,
       body: JSON.stringify(gqlQueryBody),
+      next: {
+        tags: cacheTags,
+      },
     });
 
     if (!res.ok) {
@@ -72,7 +78,7 @@ export async function getProjects(): Promise<TProject[]> {
     }`,
   };
 
-  const data = await fetchData(projectsQuery);
+  const data = await fetchData(projectsQuery, ["projects"]);
   return data.allProject;
 }
 
@@ -103,7 +109,7 @@ export async function getProjectDetail(
     variables: { projectName },
   };
 
-  const data = await fetchData(projectDetailQuery);
+  const data = await fetchData(projectDetailQuery, ["projectDetail"]);
   return await data.allProjectDetail[0];
 }
 
