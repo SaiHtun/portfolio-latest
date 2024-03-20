@@ -11,7 +11,7 @@ export default function Project({ project }: Props) {
   const { name, intro, topics, slug, projectIcon } = project;
 
   return (
-    <Link href={`/projects/${slug.current}`}>
+    <Link href={`/projects/${slug.current}`} prefetch>
       <div className="__item_grid hover:bg-neutral-50 hover:dark:bg-neutral-800 transition-colors cursor-pointer">
         <div className="grid place-items-center">{projectIcon}</div>
         <div>
