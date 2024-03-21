@@ -127,7 +127,6 @@ export const projectIcons = {
     </MainIconWrapper>
   ),
   "paint-board": <HandrawIcon />,
-  jsapi: <TextInitalIcon text="jsapi" />,
   outstagramm: (
     <MainIconWrapper>
       <InstagramIcon />
@@ -139,7 +138,8 @@ export async function getProjecstWithIcon() {
   const projects = await getProjects<TProject[]>();
   return projects?.map((p) => ({
     ...p,
-    projectIcon:
-      projectIcons[p.name.toLowerCase() as keyof typeof projectIcons],
+    projectIcon: projectIcons[
+      p.name.toLowerCase() as keyof typeof projectIcons
+    ] || <TextInitalIcon text={p.name} />,
   }));
 }

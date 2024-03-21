@@ -39,7 +39,7 @@ export const experienceList: TExperience[] = [
     company: "Freelance",
     position: "Fullstack Developer, Designer",
     timeline: "2021 - 2022",
-    companyIcon: <TextInitialIcon text="Freelance" />,
+    companyIcon: <TextInitialIcon text="Freelance" twClasses="rounded-full" />,
     descriptions: [
       "Worked collaboratively with clients to uncover their unique business needs and delivered tailor-made web solutions that exceeded expectations and drove business growth.",
       "Ensure all code and design were well-documented and adhered to industry best practices that enable users to maintain and extend the system effectively.",
