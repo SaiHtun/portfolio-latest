@@ -6,6 +6,7 @@ const {
   AWS_SECRET_ACCESS_KEY,
   BUCKET_NAME,
   SANITY_WEBHOOK_SECRET,
+  NODE_ENV,
 } = process.env;
 
 // aws envs;
@@ -28,3 +29,5 @@ export const sanityWebhookSecret = assertValue(
   SANITY_WEBHOOK_SECRET,
   "No sanity webhook secret"
 );
+
+export const isProduction = NODE_ENV === "production";

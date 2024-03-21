@@ -8,7 +8,7 @@ export default async function Projects() {
 
   return (
     <ShowcaseContainer title="projects">
-      {projects.map((project) => (
+      {projects?.map((project) => (
         <Project key={project._id} project={project} />
       ))}
     </ShowcaseContainer>

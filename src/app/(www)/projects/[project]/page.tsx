@@ -1,5 +1,10 @@
 import React, { Suspense } from "react";
-import { getProjects, getProjectDetail } from "~/query/get-projects";
+import {
+  getProjects,
+  getProjectDetail,
+  TProject,
+  TProjectDetail,
+} from "~/query/get-projects";
 import GithubIcon from "~/components/ui/icons/github-icon";
 import { Globe } from "lucide-react";
 import Link from "next/link";
@@ -18,8 +23,8 @@ type TProps = {
 };
 
 export async function generateStaticParams() {
-  const projects = await getProjects();
-  return projects?.map((p) => ({
+  const projects = await getProjects<TProject[]>();
+  return projects!.map((p) => ({
     project: p.name,
   }));
 }
@@ -29,9 +34,13 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   try {
-    const { description, project, image } = await getProjectDetail(
+    const projectDetails = await getProjectDetail<TProjectDetail>(
       params.project
-    )!;
+    );
+
+    if (!projectDetails) throw new Error("failed to fetch project detail.");
+
+    const { description, project, image } = projectDetails;
     const previousImage = (await parent).openGraph?.images || [];
     const sharedProjectInfo = {
       title: `${project.name} | ${project.intro}`,
@@ -53,12 +62,14 @@ export async function generateMetadata(
   } catch (error) {
     return {
       title: `Project name | intro`,
-      description: "Project not found",
+      description: (error as Error).message,
     };
   }
 }
 
 export default async function Page({ params }: TProps) {
+  const projectDetails = await getProjectDetail<TProjectDetail>(params.project);
+
   const {
     description,
     githubUrl,
@@ -67,7 +78,7 @@ export default async function Page({ params }: TProps) {
     websiteUrl,
     image,
     videoUrl,
-  } = await getProjectDetail(params.project)!;
+  } = projectDetails!;
 
   const { base64 } = await getBase64Img(image.asset.url);
 

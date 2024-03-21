@@ -31,10 +31,10 @@ export type TProjectDetail = {
   infoRaw: TypedObject;
 };
 
-async function fetchData(
-  gqlQueryBody: { [key: string]: unknown },
+async function fetchData<T>(
+  gqlQueryBody: Record<string, unknown>,
   cacheTags: string[] = []
-) {
+): Promise<Record<string, T> | undefined> {
   const headers = {
     "content-type": "application/json",
     Authorization: `bearer ${process.env.SANITY_SECRET_TOKEN}`,
@@ -61,30 +61,34 @@ async function fetchData(
   }
 }
 
-export async function getProjects(): Promise<TProject[]> {
+export async function getProjects<T>(
+  queryBody?: string
+): Promise<T | undefined> {
   const projectsQuery = {
-    query: `query {
-      allProject {
-        _id
-        name
-        intro
-        slug {
-          current
-        }
-        topics {
+    query:
+      queryBody ||
+      `query {
+        allProject {
+          _id
           name
+          intro
+          slug {
+            current
+          }
+          topics {
+            name
+          }
         }
-      }
     }`,
   };
 
-  const data = await fetchData(projectsQuery, ["projects"]);
-  return data.allProject;
+  const data = await fetchData<T>(projectsQuery, ["projects"]);
+  return data?.allProject;
 }
 
-export async function getProjectDetail(
+export async function getProjectDetail<T>(
   projectName: string
-): Promise<TProjectDetail> {
+): Promise<T | undefined> {
   const projectDetailQuery = {
     query: `
       query($projectName: String!) {
@@ -112,8 +116,8 @@ export async function getProjectDetail(
     variables: { projectName },
   };
 
-  const data = await fetchData(projectDetailQuery, ["projectDetail"]);
-  return await data.allProjectDetail[0];
+  const data = await fetchData<T[]>(projectDetailQuery, ["projectDetail"]);
+  return await data?.allProjectDetail[0];
 }
 
 export const projectIcons = {
@@ -132,7 +136,7 @@ export const projectIcons = {
 };
 
 export async function getProjecstWithIcon() {
-  const projects = await getProjects();
+  const projects = await getProjects<TProject[]>();
   return projects?.map((p) => ({
     ...p,
     projectIcon:
