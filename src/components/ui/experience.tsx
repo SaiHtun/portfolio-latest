@@ -39,7 +39,7 @@ export default function Experience({ experience }: TProps) {
         <div className="grid place-items-center">{companyIcon}</div>
         <div>
           <h3>{company}</h3>
-          <p className="text-shadow-gray line-clamp-1 font-mono">{position}</p>
+          <p className="text-shadow-gray line-clamp-1">{position}</p>
         </div>
         <p className="self-end text-end text-shadow-gray font-mono max-sm:hidden">
           {timeline}

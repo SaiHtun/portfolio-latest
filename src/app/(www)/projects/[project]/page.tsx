@@ -15,6 +15,7 @@ import BlurPlaceholder from "~/components/ui/blur-placeholder";
 import { getBase64Img } from "~/lib/utils/get-base64-img";
 import type { Metadata, ResolvingMetadata } from "next";
 import { WithContext, SoftwareApplication } from "schema-dts";
+import { capitalizeFirstLetter } from "~/lib/utils";
 
 type TProps = {
   params: {
@@ -107,7 +108,9 @@ export default async function Page({ params }: TProps) {
     <section className="w-full min-h-screen">
       <div className="space-y-10 mb-20">
         <div>
-          <h1 className="font-mono font-bold">{project.name}</h1>
+          <h1 className="font-mono font-bold">
+            {capitalizeFirstLetter(project.name)}
+          </h1>
           <p className="text-shadow-gray">{project.intro}</p>
         </div>
         <div className="space-y-4 ">
@@ -127,13 +130,15 @@ export default async function Page({ params }: TProps) {
           </div>
         </div>
       </div>
-      <Suspense fallback={<BlurPlaceholder src={base64} />}>
-        <ProjectVideo
-          posterPath={image.asset.url}
-          bucketName="saihtunbkt"
-          filePath={videoUrl}
-        />
-      </Suspense>
+      <div className="rounded-md border border-shadow-gray/20 dark:border-zinc-600 p-2 max-sm:p-1">
+        <Suspense fallback={<BlurPlaceholder src={base64} />}>
+          <ProjectVideo
+            posterPath={image.asset.url}
+            bucketName="saihtunbkt"
+            filePath={videoUrl}
+          />
+        </Suspense>
+      </div>
       <PortableContent infoRaw={infoRaw} />
       <script
         async

@@ -1,4 +1,7 @@
-export default function textInitialParser(text: string, initialCounts = 2) {
+export default function textInitialCapitalizer(
+  text: string,
+  initialCounts = 2
+) {
   let textArray = text.split(" ");
 
   if (!(textArray.length > 1)) {

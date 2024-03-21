@@ -6,7 +6,9 @@ import { cn } from "~/lib/utils/cn";
 export default function PortableContent({ infoRaw }: { infoRaw: TypedObject }) {
   const portableTextComponents: Partial<PortableTextReactComponents> = {
     block: {
-      h2: ({ children }) => <h2 className="font-semibold mb-2">{children}</h2>,
+      h2: ({ children }) => (
+        <h2 className="font-semibold mb-4 font-mono">{children}</h2>
+      ),
       normal: ({ children }) => (
         <p
           className={cn("text-shadow-gray", {
@@ -19,13 +21,13 @@ export default function PortableContent({ infoRaw }: { infoRaw: TypedObject }) {
     },
     listItem: {
       bullet: ({ children }) => (
-        <li className="text-shadow-gray">{children}</li>
+        <li className="text-shadow-gray mb-1">{children}</li>
       ),
     },
   };
 
   return (
-    <div className="my-20 ">
+    <div className="my-20">
       <PortableText value={infoRaw} components={portableTextComponents} />
     </div>
   );

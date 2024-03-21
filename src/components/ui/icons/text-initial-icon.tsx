@@ -1,6 +1,6 @@
 import React from "react";
 import MainIconWrapper from "./main-icon-wrapper";
-import textInitialParser from "lib/utils/text-inital-parser";
+import textInitialCapitalizer from "~/lib/utils/text-inital-capitalizer";
 import { ClassValue } from "clsx";
 
 type TProps = {
@@ -11,7 +11,7 @@ type TProps = {
 export default function TextInitialIcon({ text, twClasses }: TProps) {
   return (
     <MainIconWrapper twClasses={twClasses}>
-      <p className="font-mono">{textInitialParser(text)}</p>
+      <p className="font-mono">{textInitialCapitalizer(text)}</p>
     </MainIconWrapper>
   );
 }
