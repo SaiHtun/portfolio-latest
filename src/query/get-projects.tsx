@@ -92,6 +92,9 @@ export async function getProjectDetail(
           project {
             name
             intro
+            topics {
+              name
+            }
           }
           description
           image {
