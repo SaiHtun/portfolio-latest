@@ -9,23 +9,24 @@ import { me } from "./shared-metadata";
 
 export const metadata: Metadata = {
   ...me,
+  metadataBase: new URL("https://saihtun.xyz"),
   keywords:
     "HTML, JavaScript, TypeScript, React.js, Node.js, Python, Software Development, Web Applications",
   alternates: {
-    canonical: "https://saihtun.xyz",
+    canonical: "/",
     languages: {
-      en: "https://saihtun.xyz",
+      "en-US": "/en-US",
     },
   },
   openGraph: {
     ...me,
-    images: ["https://saihtun.xyz/images/sai_linkedin_img.jpeg"],
+    images: ["/images/sai_linkedin_img.jpeg"],
     url: "https://saihtun.xyz",
   },
   twitter: {
     ...me,
     card: "summary_large_image",
-    images: ["https://saihtun.xyz/images/sai_linkedin_img.jpeg"],
+    images: ["/images/sai_linkedin_img.jpeg"],
   },
 };
 
