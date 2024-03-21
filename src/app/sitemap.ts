@@ -18,11 +18,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   `;
   const projects = await getProjects<TProjectResponse[]>(queryBody);
 
-  return projects!.map((project) => {
-    return {
-      url: `${BASE_URL}/projects/${project.name}`,
-      lastModified: project._updatedAt,
+  const initSitemap = [
+    {
+      url: BASE_URL,
+      lastModified: projects![0]._updatedAt,
       changeFrequency: "monthly",
-    };
-  });
+    },
+  ];
+
+  const projectsSitemap = projects!.map((project) => ({
+    url: `${BASE_URL}/projects/${project.name}`,
+    lastModified: project._updatedAt,
+    changeFrequency: "monthly",
+  }));
+
+  return initSitemap.concat(projectsSitemap) as MetadataRoute.Sitemap;
 }
