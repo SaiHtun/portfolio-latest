@@ -4,6 +4,7 @@ import Projects from "~/components/projects";
 import MoreAboutMe from "~/components/more-about-me";
 import Announcement from "~/components/announcement";
 import { HomeJsonLd } from "~/components/json-ld";
+import Schools from "~/components/schools";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <Experiences />
       <Projects />
+      <Schools />
       <MoreAboutMe />
       <Announcement />
       <HomeJsonLd />

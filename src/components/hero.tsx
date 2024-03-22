@@ -3,7 +3,7 @@ import Socials from "~/ui/socials";
 
 export default function Hero() {
   return (
-    <ShowcaseContainer title="Me">
+    <ShowcaseContainer title="me">
       <div className="space-y-4 text-shadow-gray tracking-wide text-pretty mb-4">
         <p>
           I’m a human-centered software engineer located in San Francisco. At
