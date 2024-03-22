@@ -11,7 +11,7 @@ type TProps = {
 export default function TextInitialIcon({ text, twClasses }: TProps) {
   return (
     <MainIconWrapper twClasses={twClasses}>
-      <p className="font-mono">{textInitialCapitalizer(text)}</p>
+      <p className="font-mono font-medium">{textInitialCapitalizer(text)}</p>
     </MainIconWrapper>
   );
 }
