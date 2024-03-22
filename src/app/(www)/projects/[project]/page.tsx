@@ -14,8 +14,8 @@ import ProjectVideo from "~/components/ui/project-video";
 import BlurPlaceholder from "~/components/ui/blur-placeholder";
 import { getBase64Img } from "~/lib/utils/get-base64-img";
 import type { Metadata, ResolvingMetadata } from "next";
-import { WithContext, SoftwareApplication } from "schema-dts";
 import { capitalizeFirstLetter } from "~/lib/utils";
+import { ProjectJsonLd } from "~/components/json-ld";
 
 type TProps = {
   params: {
@@ -71,6 +71,8 @@ export async function generateMetadata(
 export default async function Page({ params }: TProps) {
   const projectDetails = await getProjectDetail<TProjectDetail>(params.project);
 
+  if (!projectDetails) return <div>No project details..</div>;
+
   const {
     description,
     githubUrl,
@@ -79,30 +81,9 @@ export default async function Page({ params }: TProps) {
     websiteUrl,
     image,
     videoUrl,
-  } = projectDetails!;
+  } = projectDetails;
 
   const { base64 } = await getBase64Img(image.asset.url);
-
-  const project_jsonld: WithContext<SoftwareApplication> = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: project.name,
-    description: description,
-    applicationCategory: "Web Applications",
-    image: [image.asset.url],
-    disambiguatingDescription: project.intro,
-    url: `https://saihtun.xyz/project/${project.name}`,
-    keywords: project.topics.join(", "),
-    author: {
-      "@type": "Person",
-      name: "Sai Htun",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Sai is cooking!",
-      url: "https://saihtun.xyz",
-    },
-  };
 
   return (
     <section className="w-full min-h-screen">
@@ -140,11 +121,7 @@ export default async function Page({ params }: TProps) {
         </Suspense>
       </div>
       <PortableContent infoRaw={infoRaw} />
-      <script
-        async
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(project_jsonld) }}
-      />
+      <ProjectJsonLd projectDetails={projectDetails} />
     </section>
   );
 }
