@@ -3,15 +3,15 @@ import ShowcaseContainer from "./ui/showcase-container";
 const school_list = [
   {
     id: 1,
-    name: "Skyline College @ San Bruno, CA",
-    major: " Computer Science, Phi Theta Kappa Honor Society, GPA - 3.9",
-    timeline: "2021 - 2022",
-  },
-  {
-    id: 2,
     name: "Taunggyi University @ Myanmar",
     major: "BSc Physics",
     timeline: "2009 - 2012",
+  },
+  {
+    id: 2,
+    name: "Meta Front-End Developer",
+    major: "Coursera Certificate",
+    timeline: "2023 - 2023",
   },
 ];
 
